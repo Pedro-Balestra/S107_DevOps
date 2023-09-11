@@ -56,5 +56,11 @@ jobs:
         cd Aula-GitHub-Actions
         mvn clean install
 
+    - name: Upload de artefatos
+      uses: actions/upload-artifact@v3
+      with:
+        name: jar
+        path: Aula-GitHub-Actions/target/*.jar
+
 
     
