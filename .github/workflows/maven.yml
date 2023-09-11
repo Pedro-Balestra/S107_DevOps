@@ -15,7 +15,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -29,11 +29,12 @@ jobs:
         cache: maven
     - name: Testes com maven
       run: |
-      cd Aula-GitHub-Actions
-      mvn clean test site
+        cd Aula-GitHub-Actions
+        mvn clean test site
 
   empacotar:
 
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -46,8 +47,8 @@ jobs:
         cache: maven
     - name: Build com maven
       run: |
-      cd Aula-GitHub-Actions
-      mvn clean install
+        cd Aula-GitHub-Actions
+        mvn clean install
 
 
     
